@@ -18,7 +18,6 @@ class CustomTextField {
   }) {
     return SizedBox(
       width: size.width / 1.1,
-      height: size.height / 14,
       child: TextFormField(
         focusNode: focusnode,
         readOnly: readOnly ?? false,
@@ -55,6 +54,10 @@ class CustomTextField {
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(5),
             borderSide: const BorderSide(color: Colors.grey),
+          ),
+          errorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(5),
+            borderSide: const BorderSide(color: Colors.red),
           ),
         ),
       ),
