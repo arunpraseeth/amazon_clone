@@ -38,11 +38,13 @@ authRouter.post("/api/signup", async (req, res) => {
       email,
       password: hashedPassword,
     });
-    user = await user.save();
-    res.json(user);
-    // Post data to database
 
+    // Post data to database
+    user = await user.save();
+    
     // Return some data to user
+    res.json(user);
+
   } catch (e) {
     res.status(500).json({ error: e.message });
   }
