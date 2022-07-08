@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 String uri = 'http://192.168.29.200:3000';
+String authToken = 'authtoken';
 
 // Container / Textfield size
 const double customWidth = 1.1;

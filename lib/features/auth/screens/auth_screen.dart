@@ -28,15 +28,6 @@ class _AuthScreenState extends State<AuthScreen> {
   FocusNode passwordFocus = FocusNode();
   final AuthService authService = AuthService();
 
-  void signUpUser() {
-    authService.signUp(
-      context: context,
-      name: name.text.trim(),
-      email: email.text.trim(),
-      password: password.text.trim(),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -183,7 +174,9 @@ class _AuthScreenState extends State<AuthScreen> {
                           const SizedBox(height: 10),
                           InkWell(
                             onTap: () {
-                              if (signinFormKey.currentState!.validate()) {}
+                              if (signinFormKey.currentState!.validate()) {
+                                signInUser();
+                              }
                             },
                             child: Container(
                               width: size.width / customWidth,
@@ -194,7 +187,7 @@ class _AuthScreenState extends State<AuthScreen> {
                               ),
                               child: Center(
                                 child: Text(
-                                  "Signup",
+                                  "Signin",
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontSize: size.width * 0.055,
@@ -213,6 +206,23 @@ class _AuthScreenState extends State<AuthScreen> {
           ),
         ),
       ),
+    );
+  }
+
+  void signUpUser() {
+    authService.signUp(
+      context: context,
+      name: name.text.trim(),
+      email: email.text.trim(),
+      password: password.text.trim(),
+    );
+  }
+
+  void signInUser() {
+    authService.signIn(
+      context: context,
+      email: email.text.trim(),
+      password: password.text.trim(),
     );
   }
 }
